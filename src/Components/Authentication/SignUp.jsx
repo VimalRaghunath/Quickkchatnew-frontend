@@ -16,6 +16,7 @@ const SignUp = () => {
   const [password, setPassword] = useState();
   const [confirmPassword, setConfirmPassword] = useState();
   const [Show, setShow] = useState(false);
+  const [pic, setPic] = useState();
 
   const handleClick = () => setShow(!Show);
 
