@@ -53,17 +53,19 @@ function SideDrawer() {
           </Menu>
           <Menu>
             <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
-              <Avatar size={"sm"} cursor={"pointer"} 
-              name={user.name}
-              src={user.pic}
+              <Avatar
+                size={"sm"}
+                cursor={"pointer"}
+                name={user.name}
+                src={user.pic}
               />
             </MenuButton>
             <MenuList>
               <ProfileModal user={user}>
                 {/* <MenuItem>My Profile</MenuItem> */}
               </ProfileModal>
-              <MenuDivider/>
-                <MenuItem>Logout</MenuItem>
+              <MenuDivider />
+              <MenuItem>Logout</MenuItem>
             </MenuList>
           </Menu>
         </div>
