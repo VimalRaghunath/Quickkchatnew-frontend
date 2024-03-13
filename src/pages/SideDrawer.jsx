@@ -14,6 +14,7 @@ import { BellIcon, ChevronDownIcon } from "@chakra-ui/icons";
 import React, { useState } from "react";
 import { ChatState } from "../Components/Authentication/Context/ChatProvider";
 import ProfileModal from "./ProfileModal";
+import { useNavigate } from "react-router-dom";
 
 function SideDrawer() {
   const [search, setSearch] = useState("");
@@ -22,6 +23,12 @@ function SideDrawer() {
   const [loadingChat, setLoadingChat] = useState();
 
   const { user } = ChatState();
+  const navigate = useNavigate();
+
+  const LogoutHandler = () => {
+    localStorage.removeItem("userInfo")
+    navigate("/");
+  };
 
   return (
     <div>
@@ -65,7 +72,7 @@ function SideDrawer() {
                 {/* <MenuItem>My Profile</MenuItem> */}
               </ProfileModal>
               <MenuDivider />
-              <MenuItem>Logout</MenuItem>
+              <MenuItem onClick={LogoutHandler} >Logout</MenuItem>
             </MenuList>
           </Menu>
         </div>
