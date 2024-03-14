@@ -103,9 +103,9 @@ function SideDrawer() {
       if(!chats.find((c) => c._id === data._id))
       setChats([data, ...chats]);
 
+      onClose();
       setSelectedChat(data);
       setLoadingChat(false);
-      onclose();
 
      } catch (error) {
         toast({

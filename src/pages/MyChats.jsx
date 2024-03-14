@@ -11,7 +11,7 @@ const MyChats = () => {
   const [loggedUser, setLoggedUser] = useState();
   const {user, setUser, selectedChat, setSelectedChat, chats, setChats } = ChatState();
   const toast = useToast();
-
+// console.log(chats);
   const fetchChats = async () => {
     
     try {
@@ -47,9 +47,11 @@ const MyChats = () => {
      alignItems={"center"}
      p={3}
      bg={"white"}
-     w={{ base: "100%", md: "30%" }}
+     w={{ base: "100%", md: "40%" ,xl:"30%",sm:"100%"}}
+     h={"88vh"}
      borderRadius={"1g"}
-     borderWidth={"1px"}
+     borderWidth={"1px"} 
+     mt={{base:"32.5rem",  md: "32.5rem", xl:"32.5rem",sm:"32.5rem"}}
      
    >
 
@@ -84,7 +86,7 @@ const MyChats = () => {
     >
       {chats ? (
         <Stack overflowY={"scroll"}>
-          {chats.map((chat) => (
+          {chats?.map((chat) => (
              <Box
               onClick={() => setSelectedChat(chat)}
               cursor={"pointer"}
@@ -97,7 +99,7 @@ const MyChats = () => {
              >
                <Text>
                 {!chat.isGroupChat 
-                  ? getSender(loggedUser, chat.users) 
+                  ? getSender(loggedUser, chat.Users) 
                   : chat.chatName}
                </Text>
              </Box>
