@@ -82,8 +82,10 @@ const GroupChatModal = ({ children }) => {
           Authorization: `Bearer ${user.token}`,
         },
       };
+      // console.log(groupChatName);
+      // console.log(JSON.stringify(selectedUsers.map((value) => value._id)),);
 
-      const { data } = await AxiosInstance.post(
+      const  data  = await AxiosInstance.post(
         "/api/chat/group",
         {
           name: groupChatName,
@@ -91,7 +93,6 @@ const GroupChatModal = ({ children }) => {
         },
         config
       );
-
       setChats([data, ...chats]);
       onClose();
       toast({

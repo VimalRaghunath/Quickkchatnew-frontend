@@ -1,41 +1,28 @@
-import React, { useState } from 'react';
+import { Box } from '@chakra-ui/react'
+import React from 'react'
+import { ChatState } from '../Components/Authentication/Context/ChatProvider'
 
 const ChatBox = () => {
-  const [messages, setMessages] = useState([]);
-  const [inputValue, setInputValue] = useState('');
 
-  const handleInputChange = (e) => {
-    setInputValue(e.target.value);
-  };
-
-  const handleSendMessage = () => {
-    if (inputValue.trim() !== '') {
-      setMessages([...messages, inputValue]);
-      setInputValue('');
-    }
-  };
+  const { selectedChat } = ChatState()
 
   return (
-    <div className="chat-box">
-      <div className="chat-messages">
-        {messages.map((message, index) => (
-          <div key={index} className="message">
-            {message}
-          </div>
-        ))}
-      </div>
-      <div className="chat-input">
-        <input
-          type="text"
-          placeholder="Type a message..."
-          value={inputValue}
-          onChange={handleInputChange}
-        />
-        <button onClick={handleSendMessage}>Send</button>
-      </div>
-    </div>
-  );
-};
+    <Box
+      display={{ base: selectedChat ? "flex" : "none", md: "flex" }}
+      alignItems={"center"}
+      flexDir={"column"}
+      p={3}
+      bg={"white"}
+      w={{ base: "90%", md: "59%", xl: "69%", sm: "90%" }}
+      h={"88vh"}
+      borderRadius={"1g"}
+      borderWidth={"1px"}
+       mt={{base:"32.5rem",  md: "32.5rem", xl:"32.5rem",sm:"32.5rem"}}
+    >
 
-export default ChatBox;
+      Single Chat
+    </Box>
+  )
+}
 
+export default ChatBox

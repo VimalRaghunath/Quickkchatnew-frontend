@@ -39,6 +39,7 @@ const MyChats = () => {
      setLoggedUser(JSON.parse(localStorage.getItem("userInfo")));
      fetchChats();
     },[])
+    
 
   return (
    <Box
@@ -100,9 +101,9 @@ const MyChats = () => {
               key={chat._id}
              >
                <Text>
-                {!chat.isGroupChat 
+                {chat.isGroupChat ===false
                   ? getSender(loggedUser, chat.Users) 
-                  : chat.chatName}
+                  : chat.ChatName}
                </Text>
              </Box>
           ))}
