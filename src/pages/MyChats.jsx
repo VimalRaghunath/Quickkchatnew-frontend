@@ -102,7 +102,7 @@ const MyChats = ({ fetchAgain }) => {
               key={chat._id}
              >
                <Text>
-                {chat.isGroupChat ===false
+                {chat.isGroupChat === false
                   ? getSender(loggedUser, chat.Users) 
                   : chat.ChatName}
                </Text>

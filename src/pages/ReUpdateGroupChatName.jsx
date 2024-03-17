@@ -21,49 +21,6 @@ const ReUpdateGroupChatName = ({ fetchAgain, setFetchAgain }) => {
         const { selectedChat, setSelectedChat, user } = ChatState();
         
 
-        const handleRemove = async (user1) => {
-            if (selectedChat.GroupAdmin._id !== user._id && user1._id !== user._id) {
-              toast({
-                title: "Only Admin can remove someone",
-                status: "error",
-                duration: 5000,
-                isClosable: true,
-                position: "bottom",
-              });
-              return;
-            }
-
-            try {
-              setLoading(true);
-              
-              const config = {
-                headers: {
-                  Authorization: `Bearer ${user.token}`
-                },
-              }
-
-              const { data } = await AxiosInstance.put("/api/chat/groupremove", {
-                chatId: selectedChat._id,
-                userId: user1._id,
-              }, config)
-
-              user1._id === user._id ? setSelectedChat() : setSelectedChat(data);
-              setFetchAgain(!fetchAgain);
-              setLoading(false);
-
-            } catch (error) {
-              toast({
-                title: "Error Occurred",
-                description: error.response.data.message,
-                status: "error",
-                duration: 5000,
-                isClosable: true,
-                position: "bottom",
-              });
-              setLoading(false);
-            }
-         }
-
 
 
          const handleAddUser = async (user1) => {
@@ -123,6 +80,55 @@ const ReUpdateGroupChatName = ({ fetchAgain, setFetchAgain }) => {
 
 
 
+        
+         const handleRemove = async (user1) => {
+          if (selectedChat.GroupAdmin._id !== user._id && user1._id !== user._id) {
+            toast({
+              title: "Only Admin can remove someone",
+              status: "error",
+              duration: 5000,
+              isClosable: true,
+              position: "bottom",
+            });
+            return;
+          }
+
+          try {
+            setLoading(true);
+            
+            const config = {
+              headers: {
+                Authorization: `Bearer ${user.token}`
+              },
+            }
+
+            const data = await AxiosInstance.put("/api/chat/groupremove", {
+              chatId: selectedChat._id,
+              userId: user1._id,
+            }, config)
+
+
+            user1._id === user._id ? setSelectedChat() : setSelectedChat(data);
+            setFetchAgain(!fetchAgain);
+            setLoading(false);
+
+          } catch (error) {
+            toast({
+              title: "Error Occurred",
+              description: error.response.data.message,
+              status: "error",
+              duration: 5000,
+              isClosable: true,
+              position: "bottom",
+            });
+            setLoading(false);
+          }
+       }
+
+
+
+
+
         const handleRename = async () => {
 
           if(!groupChatName) return
@@ -163,6 +169,7 @@ const ReUpdateGroupChatName = ({ fetchAgain, setFetchAgain }) => {
 
 
 
+
          const handleSearch = async (query) => {
           setSearch(query);
           if (!query) {
@@ -195,6 +202,7 @@ const ReUpdateGroupChatName = ({ fetchAgain, setFetchAgain }) => {
             });
           }
         };
+
 
 
 
