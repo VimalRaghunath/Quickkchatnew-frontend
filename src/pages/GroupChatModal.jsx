@@ -85,7 +85,7 @@ const GroupChatModal = ({ children }) => {
       // console.log(groupChatName);
       // console.log(JSON.stringify(selectedUsers.map((value) => value._id)),);
 
-      const  data  = await AxiosInstance.post(
+      const data  = await AxiosInstance.post(
         "/api/chat/group",
         {
           name: groupChatName,
