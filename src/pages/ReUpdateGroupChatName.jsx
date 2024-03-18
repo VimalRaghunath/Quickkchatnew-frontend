@@ -7,7 +7,7 @@ import UserBadgeItem from "./UserBadgeItem";
 import { AxiosInstance } from "../AxiosInstance/AxiosInstance";
 import UserListItem from './UserListItem';
 
-const ReUpdateGroupChatName = ({ fetchAgain, setFetchAgain }) => {
+const ReUpdateGroupChatName = ({ fetchAgain, setFetchAgain, fetchMessages }) => {
 
     const { isOpen, onOpen, onClose } = useDisclosure();
         const [groupChatName, setGroupChatName] = useState()
@@ -110,6 +110,7 @@ const ReUpdateGroupChatName = ({ fetchAgain, setFetchAgain }) => {
 
             user1._id === user._id ? setSelectedChat() : setSelectedChat(data);
             setFetchAgain(!fetchAgain);
+            fetchMessages()
             setLoading(false);
 
           } catch (error) {
