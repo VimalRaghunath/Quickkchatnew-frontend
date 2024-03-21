@@ -82,7 +82,9 @@ const ReUpdateGroupChatName = ({ fetchAgain, setFetchAgain, fetchMessages }) => 
 
         
          const handleRemove = async (user1) => {
+          //  console.log("hi");
           if (selectedChat.GroupAdmin._id !== user._id && user1._id !== user._id) {
+            // console.log("true");
             toast({
               title: "Only Admin can remove someone",
               status: "error",
@@ -95,20 +97,19 @@ const ReUpdateGroupChatName = ({ fetchAgain, setFetchAgain, fetchMessages }) => 
 
           try {
             setLoading(true);
-            
+          
             const config = {
               headers: {
                 Authorization: `Bearer ${user.token}`
               },
             }
-
             const data = await AxiosInstance.put("/api/chat/groupremove", {
               chatId: selectedChat._id,
               userId: user1._id,
             }, config)
 
-
-            user1._id === user._id ? setSelectedChat() : setSelectedChat(data);
+            user1._id === user._id ? setSelectedChat() : setSelectedChat(data?.data);
+            // setSelectedChat(data)
             setFetchAgain(!fetchAgain);
             fetchMessages()
             setLoading(false);

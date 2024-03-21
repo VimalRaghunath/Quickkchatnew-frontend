@@ -15,6 +15,7 @@ import ProfileModal from "./ProfileModal";
 import ReUpdateGroupChatName from "./ReUpdateGroupChatName";
 import { AxiosInstance } from "../AxiosInstance/AxiosInstance";
 import "./style.css"
+import ScrollableChat from "./ScrollableChat";
 
 
 const SingleChat = ({ fetchAgain, setFetchAgain }) => {
@@ -24,7 +25,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
   const toast = useToast();
 
   const { user, selectedChat, setSelectedChat } = ChatState();
-
+// console.log(selectedChat);
   const fetchMessages = async () => {
     if (!selectedChat) return;
 
@@ -121,7 +122,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
               onClick={() => setSelectedChat("")}
             />
 
-            {!selectedChat.isGroupChat ? (
+            {messages && (!selectedChat.isGroupChat ? (
               <>
                 {getSender(user, selectedChat.Users)}
                 <ProfileModal user={getSenderFull(user, selectedChat.Users)} />
@@ -135,7 +136,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
                   fetchMessages={fetchMessages}
                 />
               </>
-            )}
+            ))}
           </Text>
           <Box
             display={"flex"}

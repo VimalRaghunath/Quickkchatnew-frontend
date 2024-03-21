@@ -41,8 +41,8 @@ const MyChats = ({ fetchAgain }) => {
      setLoggedUser(JSON.parse(localStorage.getItem("userInfo")));
      fetchChats();
     },[fetchAgain])
-    
-
+   
+// console.log(chats);
   return (
    <Box
      display={{ base: selectedChat ? "none" : "flex", md: "flex" }}
@@ -103,7 +103,7 @@ const MyChats = ({ fetchAgain }) => {
               key={chat._id}
              >
                <Text>
-                {chat.isGroupChat === false
+                {!chat.isGroupChat
                   ? getSender(loggedUser, chat.Users) 
                   : chat.ChatName}
                </Text>
