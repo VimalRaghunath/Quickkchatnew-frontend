@@ -16,6 +16,11 @@ import ReUpdateGroupChatName from "./ReUpdateGroupChatName";
 import { AxiosInstance } from "../AxiosInstance/AxiosInstance";
 import "./style.css"
 import ScrollableChat from "./ScrollableChat";
+import io from "socket.io-client";
+
+
+const ENDPOINT = "http://localhost:7000";
+var socket, selectedChatCompare;
 
 
 const SingleChat = ({ fetchAgain, setFetchAgain }) => {
@@ -97,6 +102,14 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
       }
     }
   };
+
+
+
+  useEffect(() => {
+    socket = io(ENDPOINT)
+  },[])
+
+
 
   const typingHandler = (e) => {
     setNewMessage(e.target.value);
