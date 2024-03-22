@@ -20,6 +20,7 @@
     "react-lottie": "^1.2.4",
     "react-router-dom": "^6.22.0",
     "react-scrollable-feed": "^2.0.1",
+    "react-simple-badges": "^4.2.51",
     "socket.io-client": "^4.7.5"
   },
   "devDependencies": {
