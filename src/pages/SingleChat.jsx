@@ -235,8 +235,8 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
               {isTyping? <div>
                 <Lottie
                   options={defaultOptions}
-                  width={"70"}
-                  style={{ marginBottom: 15, marginLeft: 0 }}
+                  width={"20"}
+                  style={{ marginBottom: 10, marginLeft: 0 }}
                 />
               </div> : <></>}
               <Input
