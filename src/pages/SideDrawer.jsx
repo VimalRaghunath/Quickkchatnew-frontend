@@ -18,6 +18,7 @@ import {
   Tooltip,
   Input,
   useToast,
+  
 } from "@chakra-ui/react";
 import { BellIcon, ChevronDownIcon } from "@chakra-ui/icons";
 import React, { useState } from "react";
@@ -30,7 +31,8 @@ import { AxiosInstance } from "../AxiosInstance/AxiosInstance";
 import ChatLoading from "./ChatLoading";
 import UserListItem from "./UserListItem";
 import { getSender } from "./Config/ChatLogic";
-import SimpleBadge from "react-simple-badges";
+import Badge from '@uiw/react-badge';
+
 
 
 
@@ -150,7 +152,7 @@ function SideDrawer() {
           <Menu>
             <MenuButton p={1}>
 
-              <SimpleBadge
+              <Badge             //not wroking-------------
                 count={notification.length}
               />
               <BellIcon fontSize={"2xl"} m={1} _hover={{ transform: "scale(1.1)" }} />
