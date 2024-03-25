@@ -3,6 +3,6 @@ import axios from 'axios'
 
 
 export const AxiosInstance = axios.create({
-    baseURL :"http://localhost:7000",
+    baseURL :"https://quickkchat.onrender.com",
 
 });
