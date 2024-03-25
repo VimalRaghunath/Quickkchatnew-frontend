@@ -21,7 +21,7 @@ import Lottie from "react-lottie";
 import animationData from "../Animations/typing.json";
 
 
-const ENDPOINT = "http://localhost:7000";
+const ENDPOINT = "https://quickkchat-latest-backend-dev-cjsx.1.us-1.fl0.io";
 var socket, selectedChatCompare;
 
 
