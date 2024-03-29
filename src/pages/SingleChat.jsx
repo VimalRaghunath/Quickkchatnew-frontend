@@ -21,7 +21,7 @@ import Lottie from "react-lottie";
 import animationData from "../Animations/typing.json";
 
 
-const ENDPOINT = "https://quickkchat-latest-backend-dev-cjsx.1.us-1.fl0.io";
+const ENDPOINT = "https://quickkchat-latest-backend-dev-cjsx.1.us-1.fl0.io"; //at the time of deployement i added this link otherwise need to add backend port 7000
 var socket, selectedChatCompare;
 
 
