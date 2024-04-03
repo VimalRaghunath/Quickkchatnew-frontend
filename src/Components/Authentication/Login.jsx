@@ -48,7 +48,7 @@ const Login = () => {
         { email, password },
         config
       );
-// console.log(data);
+      // console.log(data);
       toast({
         title: "Login Successful",
         status: "success",
@@ -60,7 +60,6 @@ const Login = () => {
       localStorage.setItem("userInfo", JSON.stringify(data));
       setLoading(false);
       navigate("/chats");
-
     } catch (error) {
       toast({
         title: "Error Occured",
@@ -70,11 +69,10 @@ const Login = () => {
         isClosable: true,
         position: "bottom",
       });
-      setLoading(false); 
+      setLoading(false);
     }
   };
 
-  
   return (
     <VStack spacing={"5px"} color={"black"}>
       <FormControl id="email" isRequired>
