@@ -24,7 +24,6 @@ const SignUp = () => {
   const toast = useToast();
   const navigate = useNavigate();
 
-
   const handleClick = () => setShow(!Show);
 
   const postDetails = (pics) => {
@@ -95,7 +94,6 @@ const SignUp = () => {
       });
       return;
     }
-    
 
     try {
       const config = {
@@ -103,13 +101,13 @@ const SignUp = () => {
           "Content-type": "application/json",
         },
       };
-      
+
       const { data } = await AxiosInstance.post(
         "/api/user/",
         { name, email, password, pic },
         config
       );
-     
+
       toast({
         title: "Registration Successfull",
         status: "success",
@@ -118,10 +116,9 @@ const SignUp = () => {
         position: "bottom",
       });
 
-      localStorage.setItem("userInfo",JSON.stringify(data));
+      localStorage.setItem("userInfo", JSON.stringify(data));
       setLoading(false);
       navigate("/chats");
-
     } catch (error) {
       toast({
         title: "Error Occured",
@@ -134,8 +131,6 @@ const SignUp = () => {
       setLoading(false);
     }
   };
-
-  
 
   return (
     <VStack spacing={"5px"} color={"black"}>
