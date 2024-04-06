@@ -12,6 +12,7 @@ const ChatPage = () => {
   return (
     <div style={{ width: "100%" }}>
       {user && <SideDrawer />}
+      
       <Box
         display="flex"
         alignItems="center"
