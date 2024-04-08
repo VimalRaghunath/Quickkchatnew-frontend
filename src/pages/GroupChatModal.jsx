@@ -82,8 +82,8 @@ const GroupChatModal = ({ children }) => {
           Authorization: `Bearer ${user.token}`,
         },
       };
-      
-      const data  = await AxiosInstance.post(
+
+      const data = await AxiosInstance.post(
         "/api/chat/group",
         {
           name: groupChatName,
