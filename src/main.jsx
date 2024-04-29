@@ -11,7 +11,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <BrowserRouter>
    <ChatProvider>
       <ChakraProvider>
-        <App />
+         <App />
       </ChakraProvider>
    </ChatProvider>,
   </BrowserRouter>
